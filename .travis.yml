@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.2.2
+
+script:
+  - ruby --version
+  - echo test1
+  - echo test2
+
+before_install: gem install bundler -v 1.10.3
