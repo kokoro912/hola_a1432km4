@@ -67,8 +67,8 @@ DEPENDENCIES
   guard-bundler
   guard-livereload
   guard-minitest
-  minitest
   hola_a1432km4!
+  minitest
   rake (~> 10.0)
 
 BUNDLED WITH
