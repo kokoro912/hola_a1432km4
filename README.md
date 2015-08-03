@@ -28,23 +28,30 @@ gem 'hola_a1432km4'
 
 ## メソッド一覧
 
-odd(num)
+* odd(num)
+
 整数を入力として受け取り，値が奇数ならば真を返す
 
-check_number(num)
+* check_number(num)
+
 引数が0 以外ではじまる4 桁の数字であり，なおかつ，値が偶数ならば真を返す
 
-enough_length(str)
+* enough_length(str)
+
 文字列を受け取り，その長さが3 文字以上，8 文字以下であれば真を返す
 
-divide(num_n, num_d)
+* divide(num_n, num_d)
+
 引数として割る数と割られる数を取り，割り算をした結果を返す．ただし，0 で割り算をしたら例外を発生する
 
-fizz_buzz(num)
+* fizz_buzz(num)
+
 引数に数値を1 つとる．3 の倍数の時は”Fizz”を返す．5 の倍数の時は”Buzz”を返す．3 と5 の公倍数のときは”FizzBuzz”を返す
 
-hello()
+* hello()
+
 引数に数値を1 つとる．3 の倍数の時は”Fizz”を返す．5 の倍数の時は”Buzz”を返す．3 と5 の公倍数のときは”FizzBuzz”を返す
+
 
 ## 単体テスト
 
