@@ -112,5 +112,6 @@ gem 'hola_a1432km4'
 ## Travis CI
 
 この gem は Travis CI と連携し、テストの自動化を行っています。
+
 https://travis-ci.org/kokoro912/hola_a1432km4
 
