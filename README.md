@@ -1,36 +1,109 @@
-# HolaA1432km3
+# HolaA1432km4
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hola_a1432km4`. To experiment with that code, run `bin/console` for an interactive prompt.
+MiniTest による単体テストを検証するための gem です。
 
-TODO: Delete this and the text above, and describe your gem
+AIIT フレームワーク開発特論の個人演習用に作成致しました。
 
-## Installation
+## インストール
 
-Add this line to your application's Gemfile:
+アプリケーションの Gemfile に以下の行を記述します。
 
 ```ruby
 gem 'hola_a1432km4'
 ```
 
-And then execute:
+その後、以下のコマンドを実行します。
 
     $ bundle
 
-Or install it yourself as:
+もしくは以下のコマンドを実行します。
 
     $ gem install hola_a1432km4
 
-## Usage
 
-TODO: Write usage instructions here
+アンインストールする場合は以下のコマンドを実行します。
 
-## Development
+    $ gem uninstall hola_a1432km4
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## メソッド一覧
 
-## Contributing
+odd(num)
+整数を入力として受け取り，値が奇数ならば真を返す
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hola_a1432km4.
+check_number(num)
+引数が0 以外ではじまる4 桁の数字であり，なおかつ，値が偶数ならば真を返す
+
+enough_length(str)
+文字列を受け取り，その長さが3 文字以上，8 文字以下であれば真を返す
+
+divide(num_n, num_d)
+引数として割る数と割られる数を取り，割り算をした結果を返す．ただし，0 で割り算をしたら例外を発生する
+
+fizz_buzz(num)
+引数に数値を1 つとる．3 の倍数の時は”Fizz”を返す．5 の倍数の時は”Buzz”を返す．3 と5 の公倍数のときは”FizzBuzz”を返す
+
+hello()
+引数に数値を1 つとる．3 の倍数の時は”Fizz”を返す．5 の倍数の時は”Buzz”を返す．3 と5 の公倍数のときは”FizzBuzz”を返す
+
+## 単体テスト
+
+以下のテストを行います。
+
+
+```ruby
+	#整数を入力として受け取り，値が奇数ならば真を返す
+	def test_odd
+		assert_equal(false, @my.odd(0))
+		assert_equal(true,  @my.odd(1))
+		assert_equal(false, @my.odd(2))
+	end
+
+	#check_numberメソッドテスト
+	def test_check_number
+		assert_equal(false, @my.check_number(0))
+		assert_equal(false, @my.check_number(123))
+		assert_equal(false, @my.check_number(1001))
+		assert_equal(true,  @my.check_number(1000))
+	end
+
+	#enough_lengthメソッドテスト
+	def test_enough_length
+		#境界値チェック2,3,8,9桁
+		assert_equal(false, @my.enough_length("12"))
+		assert_equal(true,  @my.enough_length("123"))
+		assert_equal(true,  @my.enough_length("12345678"))
+		assert_equal(false, @my.enough_length("123456789"))
+	end
+
+	#divideメソッドテスト
+	def test_divide
+		assert_equal(2, @my.divide(50, 25))
+		assert_equal(20, @my.divide(200, 10))
+	end
+
+	#fizz_buzzメソッドテスト
+	def test_fizz_buzz
+		assert_equal("",         @my.fizz_buzz(0))
+		assert_equal("",         @my.fizz_buzz(1))
+		assert_equal("Fizz",     @my.fizz_buzz(3))
+		assert_equal("",         @my.fizz_buzz(4))
+		assert_equal("Buzz",     @my.fizz_buzz(5))
+		assert_equal("",         @my.fizz_buzz(14))
+		assert_equal("FizzBuzz", @my.fizz_buzz(15))
+		assert_equal("",         @my.fizz_buzz(16))
+		assert_equal("",         @my.fizz_buzz(101))
+	end
+
+	#引数に数値を1 つとる．3 の倍数の時は”Fizz”を返す．5 の倍数の時は”Buzz”を返す．3 と5 の公倍数のときは”FizzBuzz”を返す．
+	def test_hello
+		assert_output(/Hello/) { @my.hello}
+	end
+	
+```
+
+## Travis CI
+
+この gem は Travis CI と連携し、テストの自動化を行っています。
+https://travis-ci.org/kokoro912/hola_a1432km4
 
